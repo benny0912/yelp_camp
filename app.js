@@ -22,8 +22,8 @@ mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
 //var uri = "mongodb://localhost/yelp_camp";
-var uri = "mongodb+srv://benny0912:Pilot@1998@yelpcamp-nhwb3.mongodb.net/test?retryWrites=true&w=majority";
-mongoose.connect(uri);
+//var uri = "mongodb+srv://benny0912:Pilot@1998@yelpcamp-nhwb3.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(process.env.DATABASEURL);
 
 //seedDB();
 app.use(flash());
