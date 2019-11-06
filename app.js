@@ -34,6 +34,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(methodOverride("_method"));
+app.set('trust proxy', 1);
 app.use(require("express-session")({
 	secret: "Have faith, be patience",
 	resave: false,
@@ -55,6 +56,6 @@ app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
 
-app.listen(process.env.PORT, process.env.IP, function(){
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
 	console.log("Yelp Server Started!");
 });
